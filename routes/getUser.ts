@@ -1,10 +1,10 @@
 import express from "express";
 import { User } from "../db/entities/User.js";
-import { Role } from "../db/entities/Role.js";
-import { Permission } from "../db/entities/Permission.js";
+import { authenticate } from "../middleware/auth/authenticate.js";
+
 
 const router = express.Router();
-router.get("/", async (req, res) => {
+router.get("/", authenticate, async (req, res) => {
   try {
     if (!req.body.username) {
       res.status(500).send("Threr are no user with this username");

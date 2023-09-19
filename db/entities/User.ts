@@ -42,7 +42,7 @@ export class User extends BaseEntity {
   @ManyToMany(() => Role, (role) => role.users, {cascade:['soft-remove'], eager:true})
     roles: Role[];
 
-  @OneToOne(() => Profile)
+  @OneToOne(() => Profile, {eager:true})
   @JoinColumn()
   profile: Profile;
 }
