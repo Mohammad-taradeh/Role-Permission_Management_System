@@ -25,10 +25,11 @@ router.post("/", async (req, res) => {
       return res.send("No such user");
     }
 
+    
     //help me?
     user.roles = user.roles ?? [];
-
-    if (user.roles.filter((e) => e.roleName === role.roleName).length > 0) {
+    const x = user.roles.filter((e) => e.roleName === role.roleName);
+    if (x.length>0) {
       return res.status(500).send("this user already has this role");
     } else {
       user.roles = [...user.roles, role];

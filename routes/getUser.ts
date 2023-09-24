@@ -7,7 +7,7 @@ const router = express.Router();
 router.get("/", authenticate, async (req, res) => {
   try {
     if (!req.body.username) {
-      res.status(500).send("Threr are no user with this username");
+      res.status(500).send("There are no user with this username");
     }
   
     const user = await User.findOneBy({ username: req.body.username });

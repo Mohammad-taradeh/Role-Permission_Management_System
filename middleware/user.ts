@@ -25,9 +25,6 @@ const validateUser = async (
     errorList.push("Password should contain at least 6 characters!");
   }
 
-  if (!req.body.role) {
-    req.body.role = "user";
-  }
 
   const test = await User.findOneBy({
     username: req.body.userName,

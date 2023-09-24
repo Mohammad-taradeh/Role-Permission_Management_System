@@ -13,9 +13,7 @@ router.post("/", async (req, res) => {
     const user = await User.findOneBy({
       username,
     });
-    console.log(user);
-
-    console.log(user?.profile);
+  
 
     const matching = await bcrypt.compare(password, user?.password || "");
 
@@ -43,10 +41,6 @@ router.post("/", async (req, res) => {
   }
 });
 
-router.put("/", (req,res) => {
-  console.log(process.env.KEY);
-  res.status(200).send("done");
-  
-})
+
 
 export default router;
